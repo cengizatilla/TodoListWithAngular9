@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {todoListDB} from "../../Database/todos";
+import {TodoItem} from "../../Database/todoItem";
+
 
 @Component({
   selector: 'app-create-todo',
@@ -14,8 +16,11 @@ export class CreateTodoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addNewRecord(todoText: string,event:Event) {
-    todoListDB.push(todoText);
+  addNewRecord(todoText: string, event: Event) {
+    todoListDB.push({
+      todoItem: todoText,
+      todoStatus: false
+    });
     console.log(todoListDB);
     (<HTMLInputElement>event.target).value = '';
   }

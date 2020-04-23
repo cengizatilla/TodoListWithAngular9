@@ -1,0 +1,8 @@
+<div class="card-container">
+  <ul class="list-group">
+    <li class="list-group-item"
+        [ngStyle]="{backgroundColor:item.todoStatus==true?'green':'white'}"
+        *ngFor="let item of todoListDb"
+        (click)="checkTodo(item)"> {{item.todoItem}}</li>
+  </ul>
+</div>
